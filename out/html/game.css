@@ -1,52 +1,57 @@
 body {
-  --bg-color: #f3f3e3;
-  --border-color: #000;
-  --content-bg-color: #f3f3f3;
-  --text-color: #431;
-  --link-color: #900;
+  --bg-color: #f5f0e8;
+  --border-color: #1a1a1a;
+  --content-bg-color: #faf7f2;
+  --text-color: #2c1810;
+  --link-color: #8b1a1a;
   --link-hover-color: rgba(0, 0, 0, 0.05);
   --unavailable-bg-color: rgba(0, 0, 0, 0.1);
   --unavailable-color: #999;
-  --tab-bg-color: #dedede;
-  --tab-color: #ddd;
-  --tab-hover-color: #ececec;
-  --card-border-color: #ccc; 
-  --card-bg-color: #ddd; 
-  font-family: "Minion Pro", Georgia, serif;
+  --tab-bg-color: #e0d8cc;
+  --tab-color: #d4ccc0;
+  --tab-hover-color: #ece8e0;
+  --card-border-color: #c4b89a;
+  --card-bg-color: #d8d0c4;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   background-color: var(--bg-color);
   padding: 0;
   line-height: 155%;
   overflow-y: scroll;
 }
+
 body.dark-mode {
-  --bg-color: #000;
-  --border-color: #fff;
-  --content-bg-color: #242424;
-  --text-color: #efefef;
-  --link-color: #ff8080;
+  --bg-color: #0d0d0d;
+  --border-color: #e0e0e0;
+  --content-bg-color: #1c1c1c;
+  --text-color: #e8e8e0;
+  --link-color: #e07070;
   --link-hover-color: rgba(255, 255, 255, 0.06);
-  --tab-bg-color: #555555;
-  --tab-color: #505050;
-  --tab-hover-color: #242424;
-  --card-border-color: #4c4c4c;
-  --card-bg-color: #3f3f3f;
+  --tab-bg-color: #3a3a3a;
+  --tab-color: #303030;
+  --tab-hover-color: #1c1c1c;
+  --card-border-color: #3c3c3c;
+  --card-bg-color: #2a2a2a;
 }
+
 body.dark-mode #content {
   border-style: double;
   border-width: 4px;
-  border-color: #888;
+  border-color: #666;
 }
+
 body.dark-mode .tools {
   border-style: double;
   border-width: 4px;
-  border-color: #888;
+  border-color: #666;
 }
+
 header, #content, footer {
   color: var(--text-color);
   max-width: 540px;
   margin: 0 auto;
   overflow: auto;
 }
+
 #content {
   position: relative;
   background-color: var(--content-bg-color);
@@ -54,17 +59,21 @@ header, #content, footer {
   padding: 1em 1.5em 1.5em 1.5em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
+
 footer {
   margin-top: 1em;
   font-size: 0.8em;
   position: relative;
 }
+
 footer a {
   padding-right: 1em;
 }
+
 header {
-  text-align: right
+  text-align: right;
 }
+
 #header-links {
   text-align: left;
   float: left;
@@ -74,18 +83,22 @@ header {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   background-color: var(--bg-color);
 }
+
 #header-links a {
   padding-right: 1em;
 }
+
 header h1, header h2 {
   display: inline-block;
   font-weight: normal;
   margin: 0;
   font-size: 1em;
 }
+
 header h1 {
   font-weight: bold;
 }
+
 header h2:before {
   content: "by";
   font-style: italic;
@@ -99,9 +112,11 @@ header h2:before {
   width: 20%;
   clear: left;
 }
+
 #content h1:first-child {
   margin-top: 0.5em;
 }
+
 #content h1 {
   margin: 2em 0 1em 0;
   font-size: 1.35em;
@@ -109,18 +124,22 @@ header h2:before {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 2px,
-               rgba(0, 0, 0, 0.1) -1px -1px 2px;
+  /* Warm shadow — parchment feel */
+  text-shadow: rgba(255, 240, 200, 0.9) 2px 2px 2px,
+               rgba(0, 0, 0, 0.15) -1px -1px 2px;
 }
+
 a {
   color: var(--link-color);
   text-decoration: none;
 }
+
 p {
   margin: 0;
   margin-bottom: 1em;
   text-indent: 1em;
 }
+
 p.game-over {
   border: 2px solid #bbb;
   padding: 0.5em;
@@ -128,54 +147,67 @@ p.game-over {
   border-radius: 4px;
   color: #999;
 }
+
 ul.choices {
-  border: 2px solid #876;
+  /* Deep red border — PCdoB red */
+  border: 2px solid #7a1c1c;
   padding: 0;
   margin: 0.25em 0 0 0;
   list-style-type: none;
   border-radius: 4px;
   clear: left;
 }
+
 ul.choices li {
-  border-bottom: 1px solid #876;
+  border-bottom: 1px solid #7a1c1c;
   padding: 0.5em;
 }
+
 ul.choices li div.subtitle {
   margin-left: 2em;
   font-style: italic;
 }
+
 ul.choices li.unavailable {
   color: var(--unavailable-color);
   background-color: var(--unavailable-bg-color) !important;
   cursor: default !important;
 }
+
 ul.choices li:hover {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
+
 ul.choices li:last-child {
   border-bottom: none;
 }
+
 ul.choices a {
   text-decoration: none;
 }
+
 blockquote {
   margin: 1em 2em;
 }
+
 blockquote.attribution {
   margin-left: 4em;
 }
+
 blockquote + blockquote.attribution {
   margin-top: -1em;
 }
-/* This is mostly copied from undum. */
+
 #mid_panel {
   margin: 0 16rem;
 }
+
 #page {
   margin: 0 auto;
   position: relative;
 }
+
 #tools_wrapper {
   position: absolute;
   width: 100%;
@@ -184,6 +216,7 @@ blockquote + blockquote.attribution {
   right: 0;
   margin: 0 auto;
 }
+
 .tools {
   padding: 0.6em;
   width: 14rem;
@@ -191,143 +224,138 @@ blockquote + blockquote.attribution {
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
+
 .tools.left {
   float: left;
   left: 0.4em;
 }
+
 .tools.right {
   float: right;
   right: 0.4em;
 }
+
 #qualities {
   text-indent: 0;
   line-height: 1.3em;
 }
+
 #qualities p {
   text-indent: 0;
 }
+
 #qualities h1 {
   font-size: 1.1em;
   font-weight: normal;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 2px,
-               rgba(0, 0, 0, 0.1) -1px -1px 2px;
+  text-shadow: rgba(255, 240, 200, 0.9) 2px 2px 2px,
+               rgba(0, 0, 0, 0.15) -1px -1px 2px;
 }
+
 #qualities h1 + p:first-line {
   font-weight: normal;
 }
 
 
-/* tabs */
+/* ── Tabs ─────────────────────────────────────────── */
+
 .tab_container {
-    background-color: var(--tab-bg-color);
-    margin-top: -0.6em;
-    margin-left: -0.6em;
-    margin-right: -0.6em;
-}
-.tab_button {
-    font-family: "Minion Pro", Georgia, serif;
-    background-color: var(--tab-color);
-    color: var(--text-color);
-    /*float: left;*/
-    border: none;
-    outline: none;
-    padding: 10px;
-}
-.tab_button.active {
-    background-color: var(--content-bg-color);
-}
-.tab_button:hover {
-    background-color: var(--tab-hover-color);
+  background-color: var(--tab-bg-color);
+  margin-top: -0.6em;
+  margin-left: -0.6em;
+  margin-right: -0.6em;
 }
 
+.tab_button {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  background-color: var(--tab-color);
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.tab_button.active {
+  background-color: var(--content-bg-color);
+}
+
+.tab_button:hover {
+  background-color: var(--tab-hover-color);
+}
+
+
+/* ── Overlay / Options ────────────────────────────── */
 
 .overlay {
-    background: rgba(0,0,0,0.7);
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    overflow: scroll;
-}
-.options h3 {
-    text-align: center;
-}
-.music_player {
-    text-align: left;
-}
-.options {
-    text-align: right;
-}
-.overlay_top {
-    position: relative;
-    max-width: 540px;
-    margin: 100px auto;
-    background: rgba(50,50,50,0.7);
-    border: 2px solid;
-    color: white;
-}
-.save_info {
-    min-width: 10em;
-}
-.background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--bg-color);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    overflow: hidden;
-}
-/*
- * This is used for overlaying transparencies
- * only transition on fade-in
- * */
-#bg2 {
-    z-index: -100;
-}
-#bg1 {
-    z-index: -99;
-}
-.b {
-}
-.save_button {
-}
-.delete_button {
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  overflow: scroll;
 }
 
-/*
- * Card stuff for dendrynexus
- * 
- */
+.options h3 {
+  text-align: center;
+}
+
+.music_player {
+  text-align: left;
+}
+
+.options {
+  text-align: right;
+}
+
+.overlay_top {
+  position: relative;
+  max-width: 540px;
+  margin: 100px auto;
+  background: rgba(30, 10, 10, 0.85);
+  border: 2px solid;
+  color: white;
+}
+
+.save_info {
+  min-width: 10em;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#bg2 {
+  z-index: -100;
+}
+
+#bg1 {
+  z-index: -99;
+}
+
+
+/* ── Cards ────────────────────────────────────────── */
 
 ul.decks, ul.hand, ul.pinned-cards {
   list-style: none;
   padding-left: 0;
-}
-
-.hand {
-
-}
-
-.pinned-cards {
-
-}
-
-.deck {
-
 }
 
 a.card {
@@ -339,11 +367,13 @@ a.card {
   margin-bottom: 0.5em;
   position: relative;
 }
+
 a.card:hover {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   left: -5px;
   top: -5px;
 }
+
 div.blank-card {
   display: inline-block;
   width: 120px;
@@ -361,7 +391,6 @@ div.blank-card {
   vertical-align: top;
 }
 
-/* TODO: unavailable card */
 .unavailable-card {
   color: var(--unavailable-color);
   background-color: var(--unavailable-bg-color) !important;
@@ -398,31 +427,29 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   position: absolute;
 }
 
-/* Unlike cards, face images can have different sizes. */
 .face-figure {
-  /*vertical-align: top;*/
   display: inline-block;
   border: 5px solid var(--card-border-color);
   float: left;
   max-width: 35%;
-  /*max-height: 180px;*/
   margin-right: 1em;
   margin-bottom: 0.5em;
   overflow: hidden;
 }
+
 .face-img {
-  /*max-width: 150px;*/
   vertical-align: bottom;
   object-fit: cover;
 }
 
-/*
- * sprite stuff- feel free to comment out/remove if not using
- */
+
+/* ── Sprites ──────────────────────────────────────── */
+
 img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
+
 #contentSpriteContainer {
   position: fixed;
   width: 100%;
@@ -433,105 +460,50 @@ img {
   margin: 0 auto;
   z-index: -97;
 }
+
 .sprite {
-    position: absolute;
-    width: 180px;
-}
-#topLeftSprite {
-    float: left;
-    top: -1em;
-    left: 0.4em;
-}
-#topRightSprite {
-    float: right;
-    top: -1em;
-    right: 0.4em;
-}
-#bottomLeftSprite {
-    float: left;
-    left: 0.4em;
-    top: 50%;
-}
-#bottomRightSprite {
-    float: right;
-    right: 0.4em;
-    top: 50%;
+  position: absolute;
+  width: 180px;
 }
 
-/* smaller screens: hide left margin */
+#topLeftSprite    { float: left;  top: -1em; left: 0.4em; }
+#topRightSprite   { float: right; top: -1em; right: 0.4em; }
+#bottomLeftSprite { float: left;  left: 0.4em; top: 50%; }
+#bottomRightSprite{ float: right; right: 0.4em; top: 50%; }
+
+
+/* ── Responsive ───────────────────────────────────── */
+
 @media screen and (max-width: 1200px) {
   .tools {
-      margin-right: 0.4em;
-      margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-left: 0.4em;
   }
   #mid_panel {
-      margin-right: 0.4em;
+    margin-right: 0.4em;
   }
 }
-/* mobile: move the stat box to the top if the screen is too small,
- * and reduce font size slightly. */
+
 @media screen and (max-width: 560px) {
-  #page {
-      position: static;
-  }
-  #content {
-      position: static;
-      font-size: 1em;
-      line-height: 160%;
-      padding: 1em 1em 1.5em 1em;
-  }
-  #qualities {
-      font-size: 1em;
-  }
-  #tools_wrapper {
-    position: static;
-  }
-  .tools {
-      width: 90%;
-      margin: 2em 0 1em 0;
-      margin: 0.4em;
-  }
-  .tools.left {
-      float: none;
-      left: 0;
-  }
-  .tools.right {
-      float: none;
-      right: 0;
-  }
-  #mid_panel {
-      margin: 0 auto;
-  }
+  #page       { position: static; }
+  #content    { position: static; font-size: 1em; line-height: 160%; padding: 1em 1em 1.5em 1em; }
+  #qualities  { font-size: 1em; }
+  #tools_wrapper { position: static; }
 
-  /* cards are smaller on mobile */
-  .card-img {
-    height: 125px;
-    width: 100px;
-  }
-  a.card {
-    width: 100px;
-    height: 125px;
-    border: 8px solid var(--card-border-color);
-    margin-bottom: 0.5em;
-    position: relative;
-  }
-  div.blank-card {
-    width: 100px;
-    height: 125px;
-    border: 8px solid var(--card-border-color);
-    margin-bottom: 0.5em;
-  }
-  .card-in-hand, .pinned-card, .deck {
-    max-width: 120px;
-    margin-right: 1em;
-    vertical-align: top;
-  }
+  .tools      { width: 90%; margin: 0.4em; }
+  .tools.left  { float: none; left: 0; }
+  .tools.right { float: none; right: 0; }
+  #mid_panel  { margin: 0 auto; }
+
+  .card-img   { height: 125px; width: 100px; }
+  a.card      { width: 100px; height: 125px; border: 8px solid var(--card-border-color); margin-bottom: 0.5em; position: relative; }
+  div.blank-card { width: 100px; height: 125px; border: 8px solid var(--card-border-color); margin-bottom: 0.5em; }
+  .card-in-hand, .pinned-card, .deck { max-width: 120px; margin-right: 1em; vertical-align: top; }
 }
 
 
-/* New stuff just for this game */
+/* ── Misc ─────────────────────────────────────────── */
 
-/* colored box div */
 .box {
   display: inline-block;
   height: 1em;
@@ -539,44 +511,196 @@ img {
 }
 
 table {
-    border-spacing: 0.5em;
-}
-
-/* Styles for parties */
-.seat.kpd {
-    fill: #8B0000;
-}
-.seat.spd {
-    fill: #E3000F;
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
-}
-.seat.ddp {
-    fill: #DCCA4A;
-}
-.seat.z {
-    fill: #000;
-}
-.seat.bvp {
-    fill: #69A2BE;
-}
-.seat.dvp {
-    fill: #D5AC27;
-}
-.seat.other {
-    fill: #909090;
-}
-.seat.dnvp {
-    fill: #3F7BC1;
-}
-.seat.nsdap {
-    fill: #954B00;
-}
-.seat.sapd {
-    fill: #C40000;
+  border-spacing: 0.5em;
 }
 
 .tooltip-text {
-    text-decoration: underline;
-    text-decoration-style: dotted;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   PARTY & FACTION COLOURS
+   Sources: actual party flags, historical banners,
+   and movement iconography of 1960s Brazil.
+   ══════════════════════════════════════════════════════ */
+
+/* PCdoB — Communist Party of Brazil
+   Deep revolutionary red, the party's own banner color */
+.seat.pcdo {
+  fill: #CC0000;
+  stroke: var(--border-color);
+  stroke-width: 1.5px;
+}
+span.pcdo {
+  color: #CC0000;
+  font-weight: bold;
+}
+
+/* PCB — Brazilian Communist Party (the "revisionists")
+   Slightly cooler crimson to distinguish from PCdoB */
+.seat.pcb {
+  fill: #990000;
+}
+span.pcb {
+  color: #990000;
+  font-weight: bold;
+}
+
+/* PTB — Brazilian Labour Party (Goulart's party)
+   Trabalhismo — varguist red, but warmer and more populist */
+.seat.ptb {
+  fill: #E83030;
+}
+span.ptb {
+  color: #E83030;
+  font-weight: bold;
+}
+
+/* PSB — Brazilian Socialist Party
+   International socialist rose/pink */
+.seat.psb {
+  fill: #E8507A;
+}
+span.psb {
+  color: #E8507A;
+  font-weight: bold;
+}
+
+/* UDN — National Democratic Union (the main right-wing enemy)
+   Dark navy — conservative, anti-getulista establishment */
+.seat.udn {
+  fill: #1A237E;
+}
+span.udn {
+  color: #1A237E;
+  font-weight: bold;
+}
+
+/* PSD — Social Democratic Party (conservative center)
+   Steel blue — the big-tent machine party of the landowners */
+.seat.psd {
+  fill: #4A6FA5;
+}
+span.psd {
+  color: #4A6FA5;
+  font-weight: bold;
+}
+
+/* Arena — post-coup military party (if the coup succeeds)
+   Olive drab — military government colors */
+.seat.arena {
+  fill: #6B6B2A;
+}
+span.arena {
+  color: #6B6B2A;
+  font-weight: bold;
+}
+
+/* MDB — Brazilian Democratic Movement (post-coup opposition shell)
+   Muted teal — formal opposition tolerated by the dictatorship */
+.seat.mdb {
+  fill: #2E7D6B;
+}
+span.mdb {
+  color: #2E7D6B;
+  font-weight: bold;
+}
+
+/* Peasant Leagues / Ligas Camponesas — not a party, a movement
+   Earthy sienna — the land, the Northeast, the sertão */
+.seat.ligas {
+  fill: #8B4513;
+}
+span.ligas {
+  color: #8B4513;
+  font-weight: bold;
+}
+
+/* CGT — General Workers' Command (labor federation)
+   Deep amber — organized labor, factory floor */
+.seat.cgt {
+  fill: #C67C00;
+}
+span.cgt {
+  color: #C67C00;
+  font-weight: bold;
+}
+
+/* Military / Armed Forces factions — coup plotters
+   Charcoal — the barracks, the ESG, the IPES network */
+.seat.military {
+  fill: #3D3D3D;
+}
+span.military {
+  color: #3D3D3D;
+  font-weight: bold;
+}
+
+/* Progressive Military — nationalist officers, Brizola's network
+   Olive green — distinct from the coup faction */
+.seat.military_prog {
+  fill: #4E6B30;
+}
+span.military_prog {
+  color: #4E6B30;
+  font-weight: bold;
+}
+
+/* CIA / North American imperialism — external antagonist
+   Cold grey-blue — foreign intervention, USAID, ITT */
+.seat.cia {
+  fill: #607D8B;
+}
+span.cia {
+  color: #607D8B;
+  font-weight: bold;
+}
+
+/* Other / minor parties */
+.seat.other {
+  fill: #909090;
+}
+span.other {
+  color: #666;
+}
+
+
+/* ── Key concept highlights ───────────────────────── */
+
+/* Repression / state violence — bruise purple */
+span.repression {
+  color: #5E2D79;
+  font-style: italic;
+}
+
+/* Armed struggle line — dark ember red */
+span.armed {
+  color: #B22222;
+  font-style: italic;
+}
+
+/* Coup threat / golpe — warning amber */
+span.coup {
+  color: #B8860B;
+  font-weight: bold;
+}
+
+/* Reformas de Base — hopeful green */
+span.reformas {
+  color: #2E7D32;
+  font-weight: bold;
+}
+
+/* Imperialism / CIA interference — cold steel */
+span.imperialism {
+  color: #546E7A;
+  font-style: italic;
+}
+
+/* Land reform / agrarian question — earth brown */
+span.agrarian {
+  color: #795548;
+  font-weight: bold;
 }
