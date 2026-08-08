@@ -1,4 +1,4 @@
-title: Confronting the Reaction
+title: Confront the Reaction
 new-page: true
 is-card: true
 view-if: (udn_r >= 10 and coup_urgency > 1) and confronting_reaction_timer == 0 and frente_ampla_formed == 0
