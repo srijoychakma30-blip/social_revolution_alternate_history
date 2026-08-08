@@ -9,62 +9,63 @@ tags: party_affairs
 
 = Campaigning
 
-Whether or not we are in an electoral campaign, the party is always trying to broaden its voter base. Who should we focus our campaign efforts on?
+The Party must constantly work to broaden its base — and increasingly, clandestine organization matters as much as open agitation. The military is watching. Who should we focus our efforts on?
 
-- @workers: The urban working class, our traditional support base.
-- @new_middle: The "new middle class" of government employees and white-collar workers.
-- @old_middle: The "old middle class" of small independent businessmen and artisans.
-- @rural: Rural workers and small farmers, who have felt neglected by us in the past.
-- @unemployed: The unemployed.
-- @catholics: Catholics, who typically support the Center Party.
-- @root: We either don't want to or cannot campaign right now.
+- @industrial_workers: The urban industrial proletariat, our traditional base.
+- @peasant_leagues: Rural workers and the Peasant Leagues of the Northeast.
+- @students: University youth and the student movement.
+- @progressive_military: Military officers and NCOs sympathetic to left-wing nationalism.
+- @intellectuals: Intellectuals, artists, and the progressive press.
+- @church_left: Catholics radicalized by Liberation Theology and the Basic Ecclesial Communities.
+- @root: We either cannot or do not wish to campaign right now.
 - @easy_discard
 
-@workers
+@industrial_workers
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: workers_spd += 6*(1-dissent); workers_spd -= 2 if unemployed >= 15; workers_spd -= 2 if unemployed >= 25; workers_spd += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_spd += 3*(1-dissent) if nationalization_progress >= 1;
+on-arrival: workers_pcdo += 6*(1-dissent); workers_pcdo -= 3 if repression >= 2; workers_pcdo -= 2 if union_intervention >= 1; workers_pcdo += 5*(1-dissent) if strike_solidarity >= 1; resources -= 1; workers_pcdo += 3*(1-dissent) if nationalization_stance >= 2
 
-We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
+We have intensified our work among the industrial proletariat. [? if repression >= 2: The regime's crackdowns have made open organizing extremely dangerous — our cadres operate at great personal risk. ?][? if union_intervention >= 1: The military's intervention in the unions has gutted our networks there. Rebuilding will take time. ?][? if strike_solidarity >= 1: Our visible support during the strikes has won us real credibility on the shop floor. ?]
 
-@new_middle
+@peasant_leagues
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: new_middle_spd += 6*(1-dissent); new_middle_spd -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1;
+on-arrival: peasants_pcdo += 5*(1-dissent); peasants_pcdo += 4*(1-dissent) if liga_ties >= 1; peasants_pcdo -= 3 if repression >= 3; peasants_pcdo -= 2 if peoples_party == 0; resources -= 1; peasants_pcdo += 3*(1-dissent) if land_reform_stance >= 2
 
-We have increased our campaigning among the new middle class. [? if socialism <= 49 and peoples_party == 0: The popular antipathy towards socialism among this group makes our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
+We have sent organizers into the countryside. [? if liga_ties >= 1: Our existing ties with the Peasant Leagues give our cadres an opening that few other parties have. ?][? if repression >= 3: The rural areas are being swept by the military. Several of our contacts have been arrested or have disappeared. ?][? if land_reform_stance >= 2: Our clear and public stance on land reform has given rural workers a reason to trust us. ?]
 
-@old_middle
+@students
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: old_middle_spd += 5*(1-dissent); resources -= 1; old_middle_spd -= 3 if nationalism >= 51 and peoples_party == 0; peoples_party_support += 1
+on-arrival: students_pcdo += 7*(1-dissent); students_pcdo -= 2 if repression >= 2; students_pcdo += 4*(1-dissent) if une_influence >= 1; students_pcdo -= 3 if armed_struggle_line >= 2 and clandestine_network < 2; resources -= 1
 
-We have increased our campaigning among the old middle class. [? if nationalism >= 51 and peoples_party == 0: The high levels of nationalism among this group make our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
+We have deepened our presence in the universities and student federations. [? if une_influence >= 1: Our cadres in the UNE give us an organizational reach that extends to campuses across the country. ?][? if repression >= 2: The regime has been raiding student unions and arresting activists. Recruitment must be done carefully. ?][? if armed_struggle_line >= 2 and clandestine_network < 2: Our public embrace of armed struggle rhetoric is attracting adventurists but frightening away the broader student movement — without the clandestine infrastructure to back it up, this is counterproductive. ?]
 
-@rural
+@progressive_military
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: rural_spd += 5*(1-dissent); rural_spd -= 3*(1-dissent) if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2
+view-if: military_contacts >= 1
+on-arrival: military_pcdo += 4*(1-dissent); military_pcdo -= 5 if repression >= 3; military_pcdo += 3*(1-dissent) if nationalist_line >= 1; resources -= 1; clandestine_network += 1 if military_pcdo >= 10
 
-We have increased our campaigning among farmers. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?]
+We have carefully cultivated contacts among nationalist officers and progressive NCOs. [? if repression >= 3: The purges within the armed forces have decimated our contacts. We must tread with extreme caution — one wrong move could mean exposure. ?][? if nationalist_line >= 1: Framing our program around economic nationalism and anti-imperialism, rather than open Marxism, has made us more palatable to officers who distrust North American influence. ?]
 
-@unemployed
+@intellectuals
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: unemployed_spd += 6*(1-dissent); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; unemployed_spd += 3*(1-dissent) if welfare >= 2;
+on-arrival: intellectuals_pcdo += 6*(1-dissent); intellectuals_pcdo -= 2 if soviet_line >= 2 and sino_soviet_split >= 1; intellectuals_pcdo += 3*(1-dissent) if cultural_front >= 1; resources -= 1; party_prestige += 1
 
-We have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
+We have worked to deepen our influence in cultural and intellectual circles. [? if soviet_line >= 2 and sino_soviet_split >= 1: The Sino-Soviet split has made many intellectuals wary of dogmatic alignment — our closeness to Moscow is being questioned openly in the journals and cafés. ?][? if cultural_front >= 1: Our investment in cultural work — theatre, cinema, music — has made the Party a genuine presence in Brazil's artistic life, not just a political label. ?]
 
-@catholics
+@church_left
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-view-if: peoples_party == 1
-on-arrival: catholics_spd += 6*(1-dissent); resources -= 1
+view-if: liberation_theology_emerged >= 1
+on-arrival: church_left_pcdo += 5*(1-dissent); church_left_pcdo -= 3 if anti_clerical_rhetoric >= 1; church_left_pcdo += 4*(1-dissent) if base_communities >= 1; resources -= 1; peasants_pcdo += 2*(1-dissent) if base_communities >= 1
 
-We have increased our campaigning among Catholics.
+We have reached out to Catholics radicalized by their faith — activists in the Basic Ecclesial Communities and clergy influenced by Liberation Theology. [? if anti_clerical_rhetoric >= 1: Our history of anti-clerical rhetoric is a serious obstacle. Many of these activists are devout, and they do not easily forget dismissals of their faith. ?][? if base_communities >= 1: The Base Ecclesial Communities have already done the organizational work in the poor neighborhoods and the countryside — we are finding allies, not starting from scratch. ?]
