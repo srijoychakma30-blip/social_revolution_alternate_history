@@ -1,46 +1,52 @@
 title: Choosing Our Enemies
 new-page: true
-view-if: year <= 1930 and enemies_timer <= 0
+view-if: year <= 1964 and enemies_timer <= 0
 on-arrival: month_actions += 1; enemies_timer = 18
 max-visits: 3
 is-card: true
 card-image: img/poster_1.png
 tags: party_affairs
 
-= Choosing our enemies
+= Choosing Our Enemies
 
-In our media and campaign materials, who should we consider as our main opponents?
+In our agitation, press, and campaign materials, who do we name as the principal enemy of the Brazilian people?
 
-[? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
+[? if enemies != 0 : Previously, we had identified the [+ enemies +] as our main target. Has the situation changed enough to warrant a new line? ?]
 
-- @anti_dem: The anti-democratic parties of the far right and left - the KPD, NSDAP, and DNVP.
-- @far_right: The far right - the NSDAP and DNVP.
-- @nsdap: The NSDAP alone.
-- @kpd: The KPD.
-- @bourgeois: The bourgeois parties - the Center and DVP.
+- @anti_dem: The enemies of democracy on all sides — the right-wing conspirators and the ultra-left adventurists alike.
+- @latifundia: The latifundiários and the landed oligarchy.
+- @imperialism: North American imperialism and the CIA.
+- @udn: The UDN and its military allies specifically.
+- @pcb: The PCB — the revisionists who have abandoned Marxism-Leninism.
+- @national_bourgeoisie: The national bourgeoisie and their political representatives.
 - @easy_discard
 
 @anti_dem
-on-arrival: enemies = "anti-democratic parties"; center_strength += 5; reformist_strength += 5; left_dissent += 5; workers_kpd -= 2; workers_nsdap -= 2; workers_dnvp -= 2; kpd_relation -= 10
+on-arrival: enemies = "enemies of democracy"; moderate_strength += 5; reformist_strength += 5; combative_dissent += 5; workers_pcdo -= 2 if workers_udn >= 5; coup_progress -= 1 if coup_progress > 0; pcb_relation -= 10
 
-Attacking the far right and left is popular among all but the left wing of our party, who would prefer to be fighting the bourgeois parties. This might also hamper our ability to reconcile with the KPD in the future.
+Presenting ourselves as defenders of constitutional order against extremism of all kinds appeals to the moderate middle and makes us more palatable to progressive nationalists and Goulart's wing of the PTB. However, the combative tendency bristles — lumping the ultra-left in with the coup plotters feels like a betrayal of revolutionary solidarity, and it will make any future reconciliation with dissident leftists harder.
 
-@far_right
-on-arrival: enemies = "far right"; left_strength += 5; left_dissent -= 5; workers_nsdap -= 3; workers_dnvp -= 3;
+@latifundia
+on-arrival: enemies = "latifundiários and the landed oligarchy"; combative_strength += 5; combative_dissent -= 5; peasants_pcdo += 3*(1-dissent); workers_udn -= 3; udn_relation -= 5; moderate_dissent += 3
 
-Attacking the far right is popular among the entire party, although the left considers the bourgeois parties to be just as dangerous, while the right is critical of our lack of response to the KPD. Our bourgeois coalition partners are also skeptical of our lack of commitment to anti-communism.
+Naming the latifundiary class as the root of Brazil's misery resonates powerfully in the countryside and gives the Peasant Leagues a clear class enemy to organize around. The moderate tendency worries this will alarm the rural middle — the small landowners whose support we need — but the combative faction considers it the most honest statement of the party's analysis.
 
-@nsdap
-on-arrival: enemies = "NSDAP"; neorevisionist_strength += 5; nazi_urgency += 1; workers_nsdap -= 4;
+@imperialism
+on-arrival: enemies = "North American imperialism"; nationalist_line += 1; combative_dissent -= 5; students_pcdo += 3*(1-dissent); military_pcdo += 2*(1-dissent) if nationalist_line >= 1; pcb_relation -= 5; coup_progress += 1
 
-[? if nazi_urgency == 0 or nsdap_r < 10 : The NSDAP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if nazi_urgency > 0 and nsdap_r >= 10 : The Nazis are the most urgent problem for us to deal with. ?]
+Anti-imperialism is our broadest possible rallying cry — it unites communists, nationalists, progressive military officers, and students under a single banner, and it puts us in step with the global tide of national liberation movements. The CIA will take notice. Naming Washington so directly may accelerate the timeline of reaction, but it also sharpens the contradictions we need the masses to understand.
 
-@kpd
-on-arrival: enemies = "KPD"; reformist_strength += 5; left_dissent += 8; reformist_dissent -= 5; kpd_relation -= 15; dvp_relation += 5; z_relation += 5; workers_kpd -= 4;
+@udn
+on-arrival: enemies = "UDN and its military allies"; combative_strength += 5; coup_urgency += 1; workers_pcdo += 2*(1-dissent); pro_democracy += 3*(1-dissent); pcb_relation += 5; moderate_dissent += 5
 
-Attacking the KPD is supported by all but the most left-wing socialists, and wins us some measure of approval among the bourgeois parties. However, If we are to reconcile with the KPD, this may not be the best choice.
+Targeting the UDN specifically — Lacerda, the Ipes, the ESG network — names the actual conspirators rather than abstract social forces. This is popular across most of the party and makes common cause with the PCB easier, since we share the same immediate enemy. The moderate tendency worries that it makes us appear as a purely defensive force rather than a revolutionary one.
 
-@bourgeois
-on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; dvp_relation -= 5; z_relation -= 5; kpd_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
+@pcb
+on-arrival: enemies = "PCB revisionists"; combative_strength += 8; combative_dissent -= 5; pcb_relation -= 20; moderate_dissent += 10; students_pcdo += 2*(1-dissent) if sino_soviet_split >= 1; coup_progress += 1
 
-Our anti-bourgeois rhetoric is popular among the left, but may make it harder to build the coalitions that are necessary for government in the future.
+[? if sino_soviet_split < 1 : The split from the PCB is still fresh and the wounds are raw, but openly campaigning against them as revisionists risks fracturing the left at the very moment unity is most needed. Many in our party are uneasy with this choice. ?][? if sino_soviet_split >= 1 : The Sino-Soviet split has made the ideological lines undeniable. The PCB has chosen Moscow and peaceful coexistence — we name this for what it is: a capitulation to reformism dressed up in Marxist language. ?]
+
+@national_bourgeoisie
+on-arrival: enemies = "national bourgeoisie"; combative_strength += 8; combative_dissent -= 5; reformist_dissent += 10; moderate_dissent += 8; pcb_relation -= 10; coup_progress += 2; workers_pcdo += 3*(1-dissent)
+
+Attacking the national bourgeoisie directly breaks sharply from the democratic-front line that has defined much of the Brazilian left since 1945. The moderates are alarmed — this stance puts us at odds with Goulart and the PTB, whose base includes precisely this class. But the combative tendency argues that the national bourgeoisie has already shown it will choose order over reform, and that any strategy built on their support is built on sand.
