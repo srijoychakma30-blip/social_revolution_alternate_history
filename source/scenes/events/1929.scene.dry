@@ -1,13 +1,98 @@
-title: 1929
-subtitle: A new year
+title: 1963
+subtitle: A year of crisis
 on-arrival: {!
-// see post_event.scene.dry for changes.
-Q.economic_growth -= 4;
+// The economy is deteriorating rapidly.
+// Goulart won the plebiscite in January but governing is harder than winning referendums.
+// Inflation is accelerating. The right is organizing. The clock is ticking.
+
+Q.economic_growth -= 3.2;
+Q.inflation += 28;
+Q.coup_progress += 1;
+Q.capital_flight += 1;
+Q.us_intervention += 1;
+Q.goulart_relation -= 5;
+
+// DOPS is more active this year
+if (Q.clandestine_security < 3) {
+    Q.dops_penetration += 1;
+}
+
+// the plebiscite happened in January - Goulart won full presidential powers back
+Q.plebiscite_seen = 1;
+Q.plebiscite_won = 1;
 
 !}
 tags: event
-view-if: year = 1929 and month = 1
+view-if: year = 1963 and month = 1
 priority: 2
 max-visits: 1
 
-A new year begins. The economy appears to be slackening; unemployment is increasing throughout the republic, although for the most part, people are still doing well.
+A new year — and the country feels different from the one that entered 1962.
+
+Goulart won his plebiscite. Eighty percent of Brazilians voted to restore full presidential powers, to bury the parliamentary compromise that had been imposed on him when he took office. It was a triumph, and he celebrated it as one. But a plebiscite is not a program. Goulart has his powers back. Now the question is what he will do with them.
+
+The economy is the first answer, and it is not a reassuring one. Inflation, already severe, is accelerating past all the projections the technocrats in the Finance Ministry had offered. The *Plano Trienal* — the Three-Year Plan drafted by Celso Furtado — was meant to stabilize things while pressing forward with reform. Instead it has satisfied no one. The left finds it too timid. The right finds it too radical. The IMF finds it insufficiently austere. The workers find their wages eroding faster than any plan can address.
+
+In the Northeast, the leagues are restless. In the barracks, the officers are meeting. In the American embassy, cables go back to Washington with assessments that grow grimmer with each dispatch.
+
+We have perhaps a year. Perhaps less.
+
+- @assess_situation: Assess the situation
+- @prepare_cadres: Begin preparing cadres for what is coming
+- @deepen_northeast: Intensify work in the Northeast
+- @watch_and_wait: Observe and consolidate
+
+@assess_situation
+title: Assess the political situation
+subtitle: Where do things actually stand?
+on-arrival: coup_monitoring_timer = 3; coup_exposed += 1;
+go-to: 1963_main
+
+We have spent the opening weeks of the year taking stock. The picture that emerges is not comforting, but it is clear.
+
+Goulart is not our man — he never was — but the forces gathering around his government represent something real. The CGT general strikes, the peasant leagues, the sergeants and enlisted men who are beginning to organize: these are not Goulart's creation. They are the pressure from below that has carried him further left than he intended to go, and they will carry him further still if they are organized.
+
+The right is also organizing. The IPES — *Instituto de Pesquisas e Estudos Sociais* — is coordinating business opposition to reform, funding media campaigns, and maintaining quiet contact with ESG officers who have already decided that Goulart must go. The CIA's presence in this is not subtle, if you know where to look.
+
+The window is real. It is also closing.
+
+@prepare_cadres
+title: Begin preparing cadres for what is coming
+subtitle: Accelerate training and security discipline across our cells.
+on-arrival: clandestine_security += 2; cadre_training_timer = 4; pcdb_militia_strength += 0.3; resources -= 1;
+go-to: 1963_main
+
+We cannot afford to be caught unprepared again. The lesson of 1935 — of the *Intentona*, of Prestes in chains, of the party's decade in ruins — is too expensive to relearn. We begin the year with a systematic review of cell security, of contact protocols, of escape routes and safe houses and the identities of every cadre whose cover we are not certain of.
+
+It is unglamorous work. The youth militants find it frustrating — they want action, not security reviews. But a cadre arrested is a cadre who talks, eventually, under enough pressure. And the DOPS applies pressure with great professional thoroughness.
+
+@deepen_northeast
+title: Intensify work in the Northeast
+subtitle: Build our presence where the land question burns hottest.
+on-arrival: northeast_presence += 2; rural_pcdb += 3; leagues_relation += 5; coup_progress += 1; dops_penetration += 1;
+go-to: 1963_main
+
+We send cadres north. They travel by bus through the dry interior of Pernambuco and Paraíba, through the *sertão* that the drought has turned to dust again, into the communities where Julião's leagues have already done years of work that we are only now arriving to build on.
+
+The conditions are extraordinary. The *camponeses* are not waiting to be organized — they are already organized, already angry, already prepared to act in ways that would terrify the comfortable left in Rio. What they lack is theory, direction, connection to a broader movement. We can offer some of that.
+
+The landlords notice. The state police notice. DOPS notices. Our visibility in the Northeast is also our exposure.
+
+@watch_and_wait
+title: Observe and consolidate
+subtitle: Do not move until the situation clarifies.
+on-arrival: clandestine_security += 1; resources += 1; maoist_dissent += 5; youth_dissent += 8;
+go-to: 1963_main
+
+The gradualists argue for patience. The objective conditions are still forming; the mass organizations are not yet strong enough to sustain a confrontation; the party's security is not yet robust enough to survive the repression that an early move would bring down on us. Wait. Build. Let the contradictions deepen.
+
+The Maoist faction and the youth disagree — loudly. Every month we wait is a month the right uses to strengthen its position. But we hold the line, for now. Patience is also a discipline.
+
+@1963_main
+new-page: false
+
+Whatever path we have chosen, the year stretches ahead: full of the particular dread of knowing that history is accelerating toward a point of rupture, and that the side which is better prepared will determine what comes after.
+
+The coup is coming. We do not yet know when. We do not yet know if we can stop it — or survive it — or turn it into something else entirely.
+
+But we are here. The party exists. That is not nothing.
