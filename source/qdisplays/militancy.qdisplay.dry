@@ -1,10 +1,11 @@
-
-# militancy for paramilitary groups
+# militancy for paramilitary / armed groups
+# (covers rural guerrilla cells, urban resistance networks, 
+# worker self-defense committees, and sympathetic military units)
 
 (..0.05) Nonexistent
-(0.05..0.14) Very low
-(0.14..0.24) Low
-(0.24..0.44) Medium-low
-(0.44..0.69) Medium
-(0.69..1) High
-(1..) Very high
+(0.05..0.14) Scattered — a few isolated contacts, no real organization
+(0.14..0.24) Embryonic — cells exist but lack arms, training, and coordination
+(0.24..0.44) Developing — organized in key regions, limited operational capacity
+(0.44..0.69) Established — capable of sustained resistance, significant rural presence
+(0.69..1) Combat-ready — a genuine insurgent infrastructure across multiple states
+(1..) Vanguard — mass armed movement, the regime is fighting a war
