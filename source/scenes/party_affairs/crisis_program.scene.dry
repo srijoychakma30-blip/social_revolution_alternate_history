@@ -1,93 +1,104 @@
-title: The Economic Crisis
+title: The Economic Crisis and the Base Reforms
 new-page: true
 is-card: true
-view-if: crisis_urgency >= 1 and crisis_program_timer = 0 and economic_plan = 0 and black_thursday_seen == 1
+view-if: crisis_urgency >= 1 and crisis_program_timer == 0 and reformas_de_base == 0 and goulart_crisis_seen == 1
 frequency: 200
 on-arrival: month_actions += 1; crisis_program_timer = 5
-card-image: img/bankrun.jpg
+card-image: img/greve.jpg
 tags: party_affairs, govt_affairs
 
 = Addressing the Economic Crisis
 
-Our party is wracked as to how to deal with the economic crisis. From the centrist faction, Hilferding argues that the economic crisis must be allowed to play out, because it is simply a part of the cyclic nature of capitalism.
+Brazil's economy is in turmoil. Inflation devours the wages of workers and peasants alike, foreign debt grows, and the promises of industrialization ring hollow for millions in the favelas and the drought-stricken Northeast.
 
-From labor, the economist Wladimir Woytinsky argues that we must pursue a massive public works program to reduce unemployment and stimulate demand, perhaps including deficit spending. His opponents, like Hilferding, argue that this plan will cause a return to hyper-inflation, and that it would not even help the economy. In addition, according to Hilferding, Woytinsky's strategy is opposed to Marxist principles.
+Our party is divided on how to respond.
 
-The so-called WTB plan, after its chief supporters Woytinsky, Tarnow, and Baade, is receiving more attention within the party.
+The *moderate* tendency, influenced by figures like Prestes and the old PCB tradition, argues that the immediate task is to support Goulart's nationalist government and pressure it from the left — a democratic, anti-imperialist front before any socialist transformation.
 
-However, leftists in the party argue that the WTB plan is merely a bandage over the fundamental flaws of capitalism. They argue that the crisis is an opportunity to end capitalism through massive nationalizations of industry, and finally bring our country to socialism.
+The economist and party intellectual Caio Prado Júnior has long argued for a different analysis: that Brazil's fundamental problem is not feudalism but capitalism itself, and that the Peasant Leagues and the labor movement must press for radical structural reforms — agrarian reform, nationalization of key industries, a break with the IMF — not merely tactical support for a bourgeois president.
 
-Meanwhile, moderates and reformists draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. Labor argues that the plan is inadequate in its scale and ambition.
+His opponents argue that such demands will isolate the party and provoke a coup before the conditions for revolution are ripe.
 
-- @support_centrist: Support the Centrist view.
-- @support_labor: Support the Labor view.
-- @support_left: Support the Left view.
-- @support_moderate: Support the Reformist view.
+Meanwhile, the *armed struggle* tendency, led by figures like Grabois and Amazonas, argues that all of this is moot — the right will never permit reforms through legal means, and the party must begin preparing the material conditions for armed resistance.
+
+And the *reformist* tendency argues for a more limited program: targeted price controls, a modest land statute, and wage indexation — measures achievable within the existing constitutional framework without provoking a violent reaction.
+
+- @support_moderate: Support the moderate democratic-front line.
+- @support_structural: Support Caio Prado's structural reform line.
+- @support_armed: Support the armed struggle tendency.
+- @support_reformist: Support the limited reformist program.
 - @defer: Defer making a decision until we have more information.
 
-@support_centrist
-subtitle: Let the depression play itself out.
-on-arrival: center_strength += 5; center_dissent -= 5; labor_dissent += 10; wtb_support -= 1; left_dissent += 10;
-
-Woytinsky and the trade unions vehemently criticize the centrists for their policy. The workers are starving; are we going to callously abandon them and side with bourgeois austerity? On the other hand, the centrists criticize Woytinsky for promising the workers false hope; their position is that nothing can be done to alleviate the depression. They also speak of the fear of another round of hyperinflation that may result from deficit spending.
-
-Our policy course is currently that nothing can be done to alleviate the depression.
-
-
-@support_labor
-subtitle: Call for increased public works and fiscal stimulus.
-unavailable-subtitle: The Labor faction is not strong enough.
-choose-if: historical_mode == 0 or (labor_strength >= left_strength and labor_strength >= center_strength and labor_strength >= reformist_strength)
-on-arrival: center_dissent += 10; left_dissent += 5; labor_strength += 5; wtb_support += 1;
-go-to: plan_adopted if wtb_support >= 3; plan_support if wtb_support < 3
-
-@plan_support
-
-Our support of the WTB plan alienates the orthodox Marxists of the Centrist faction, and faces both opposition and support from a variety of sources across the spectrum. Leftists argue that the plan is flawed because it leaves capitalism intact, while some reformists are cautiously optimistic.
-
-We have not yet convinced the party to formally adopt the plan. More work needs to be done.
-
-@plan_adopted
-on-arrival: wtb_adopted = 1; labor_dissent -= 15; reformist_dissent -= 10; labor_strength += 10; center_strength -= 10; center_dissent += 20; left_dissent += 5; economic_plan = 1
-
-With our hard work, we have finally convinced the majority of the party to adopt the WTB plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?][? if spd_in_government = 0 : We should emphasize the plan in our electoral propaganda. ?]
-
-@support_left
-subtitle: Call for mass nationalizations and the transformation of the economy.
-unavailable-subtitle: The Left faction is not strong enough.
-choose-if: historical_mode == 0 or (left_strength >= labor_strength and left_strength >= center_strength and left_strength >= reformist_strength)
-on-arrival: left_strength += 10; reformist_dissent += 5; labor_dissent += 5; nationalization_support += 2
-go-to: support_left_progress if nationalization_support < 3; adopt_left if nationalization_support >= 3
-
-@support_left_progress
-
-We attempt to convince the party to support a program of mass nationalizations in response to the economic crisis. Leftists argue that this policy is in accordance with our long-standing socialist platform, while reformists and some trade unionists argue that the plan is unrealistic, and that we need to focus on more immediate improvements to workers' lives.
-
-We have not yet formally adopted the plan. More work needs to be done.
-
-@adopt_left
-on-arrival: left_strength += 15; left_dissent -= 10; reformist_dissent += 10; neorevisionist_dissent += 8; labor_dissent += 6; nationalization_adopted = 1; coup_progress += 1; economic_plan = 3; kpd_relation += 5*(1-dissent)
-
-With our hard work, we have convinced the majority of the party to adopt the socialist economic plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?] Bourgeois opposition is likely to be fierce. [? if spd_in_government == 0 : It might be difficult to enact the plan, given present conditions. ?]
-
 @support_moderate
-subtitle: Call for a limited program of job creation without deficit spending.
-unavailable-subtitle: The Reformist faction is not strong enough.
-choose-if: historical_mode == 0 or (reformist_strength >= left_strength and reformist_strength >= center_strength and reformist_strength >= labor_strength)
-on-arrival: moderate_plan_support += 1; reformist_strength += 8; reformist_dissent -= 5; left_dissent += 6; labor_dissent += 5
-go-to: adopt_moderate if moderate_plan_support >= 2; support_moderate_progress if moderate_plan_support < 2
+subtitle: Build the broadest possible democratic front around Goulart.
+on-arrival: moderate_strength += 5; moderate_dissent -= 5; combative_dissent += 10; structural_dissent += 8; reformas_support -= 1
 
-@support_moderate_progress
+The moderate line holds that the immediate enemy is not the national bourgeoisie but imperialism and the latifundia. Goulart's government, however imperfect, is a shield behind which the popular movement can grow. Pushing too hard for socialist transformation risks handing the right the pretext it needs for a coup.
 
-We attempt to convince the party to support a moderate program of job creation without deficit spending. Advocates of the moderate plan argue that this plan is most likely to receive support from the bourgeois parties, and most practical in the immediate term. Opponents in the left and labor factions criticize the plan for being inadequate in its ambition.
+Grabois and the combative tendency are scathing in their criticism — this is the same reformism, they say, that has kept the Brazilian left permanently subordinated to bourgeois politics. But the moderate line has deep roots in the party.
 
-We have not yet adopted the plan. More work needs to be done.
+Our current line is one of critical support for the Goulart government and pressure for gradual reform.
 
-@adopt_moderate
-on-arrival: reformist_strength += 10; reformist_dissent -= 10; left_dissent += 8; labor_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; z_relation += 5;
+@support_structural
+subtitle: Press for radical structural reforms — land, nationalization, a break with the IMF.
+unavailable-subtitle: The structural reform tendency is not strong enough.
+choose-if: historical_mode == 0 or (structural_strength >= combative_strength and structural_strength >= moderate_strength and structural_strength >= reformist_strength)
+on-arrival: moderate_dissent += 10; reformist_dissent += 6; structural_strength += 5; reformas_support += 1
+go-to: reformas_adopted if reformas_support >= 3; reformas_progress if reformas_support < 3
 
-With our hard work, we have convinced the majority of the party to adopt the moderate job creation plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?]
+@reformas_progress
+
+We press for a program of genuine structural transformation: agrarian reform without compensation to the latifundistas, nationalization of oil, minerals, and banking, and a repudiation of IMF conditionality. Caio Prado's analysis gives our demands theoretical coherence — this is not adventurism, but a sober reckoning with the actual class structure of Brazilian society.
+
+The moderates accuse us of playing into the hands of the coup plotters. The armed tendency thinks we are still too timid. We have not yet convinced the party to formally adopt the program. More work needs to be done.
+
+@reformas_adopted
+on-arrival: reformas_de_base = 1; structural_dissent -= 15; reformist_dissent -= 8; structural_strength += 10; moderate_strength -= 10; moderate_dissent += 20; combative_dissent += 5; coup_progress += 1; crisis_program_timer = 0
+
+With sustained effort, we have convinced the party to formally commit to a program of radical structural reforms — the *Reformas de Base* in their fullest sense. [? if pcdo_in_coalition == 1: We can begin pressing Goulart to implement the reforms immediately, though resistance from conservative ministers will be fierce. ?][? if pcdo_in_coalition == 0: We must make the Reformas de Base the centerpiece of our agitation and electoral propaganda. ?]
+
+The right will not sit still. The CIA station in Rio has already taken notice.
+
+@support_armed
+subtitle: Begin preparing the conditions for armed resistance.
+unavailable-subtitle: The armed struggle tendency is not strong enough.
+choose-if: historical_mode == 0 or (combative_strength >= structural_strength and combative_strength >= moderate_strength and combative_strength >= reformist_strength)
+on-arrival: combative_strength += 10; reformist_dissent += 5; moderate_dissent += 8; armed_struggle_line += 2
+go-to: armed_progress if armed_struggle_line < 4; armed_adopted if armed_struggle_line >= 4
+
+@armed_progress
+
+We argue that the Brazilian ruling class will never permit meaningful reform through legal channels — the record of the last twenty years proves it. The party must begin serious preparation: building clandestine cells, establishing rural bases, making contact with sympathetic officers, and developing the organizational capacity for a sustained campaign of resistance.
+
+We have not yet won the party to a fully articulated armed line. The debate continues. More work needs to be done.
+
+@armed_adopted
+on-arrival: combative_strength += 15; combative_dissent -= 10; reformist_dissent += 12; moderate_dissent += 10; armed_struggle_adopted = 1; clandestine_network += 2; coup_progress += 2; crisis_program_timer = 0; reformas_de_base = 3
+
+The party has committed to preparing the conditions for armed struggle. This is not adventurism — it is a sober recognition that the Brazilian state will not be reformed from within. [? if pcdo_in_coalition == 1: Our continued participation in the coalition becomes increasingly difficult to justify on these terms. ?]
+
+The repression, when it comes, will be severe. We must be ready.
+
+@support_reformist
+subtitle: Push for a limited, achievable program within the constitutional order.
+unavailable-subtitle: The reformist tendency is not strong enough.
+choose-if: historical_mode == 0 or (reformist_strength >= structural_strength and reformist_strength >= moderate_strength and reformist_strength >= combative_strength)
+on-arrival: limited_plan_support += 1; reformist_strength += 8; reformist_dissent -= 5; combative_dissent += 6; structural_dissent += 5
+go-to: limited_adopted if limited_plan_support >= 2; limited_progress if limited_plan_support < 2
+
+@limited_progress
+
+We advocate for a realistic, immediate program: price controls on staple goods, a modest land statute extending tenancy protections to rural workers, wage indexation to inflation, and profit remittance controls on foreign companies. These measures stop well short of structural transformation, but they are achievable, defensible to the middle class, and less likely to provoke a violent reaction.
+
+The combative tendency accuses us of retreating into reformism in the face of a genuinely revolutionary situation. We have not yet adopted the plan formally. More work needs to be done.
+
+@limited_adopted
+on-arrival: reformist_strength += 10; reformist_dissent -= 10; combative_dissent += 8; structural_dissent += 6; limited_reforms_adopted = 1; reformas_de_base = 2; coup_progress -= 1 if coup_progress > 0; workers_pcdo += 3*(1-dissent)
+
+With sustained effort, we have convinced the party to adopt the limited reform program. [? if pcdo_in_coalition == 1: We can begin pressing for these measures within the government immediately — they are modest enough that even some conservative ministers may support parts of them. ?]
+
+It is not the revolution. But it may keep the door open long enough to build the forces we need.
 
 @defer
 
-We hold off on making a decision on economic policy, awaiting more information. Woytinsky and his supporters argue that inaction is a form of action of its own. 
+We hold off on committing to a line, awaiting greater clarity on the political situation. The combative tendency is withering in its contempt — in a revolutionary situation, they say, indecision is itself a political choice. But caution has its own logic when the stakes are this high.
