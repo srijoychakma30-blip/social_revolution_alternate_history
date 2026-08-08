@@ -1,3 +1,15 @@
 {
-  "esversion": 6
+  "esversion": 6,
+  "browser": true,
+  "jquery": true,
+  "globals": {
+    "d3": true,
+    "dendryUI": true,
+    "dendryEngine": true
+  },
+  "undef": false,
+  "unused": false,
+  "strict": false,
+  "asi": false,
+  "eqeqeq": false
 }
